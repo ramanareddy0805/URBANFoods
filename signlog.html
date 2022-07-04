@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp and Login</title>
+	<link rel="stylesheet" type="text/css" href="style2.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="container" id="container">
+<div class="form-container sign-up-container">
+
+<form name="signup" action="" onsubmit="return validateform()">
+	<h1>Create Account</h1>
+	<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your email for registration</span>
+	<input type="text" name="name" placeholder="Name" required>
+	<input type="email" name="email" placeholder="Email" required>
+	<input type="password" name="password" placeholder="Password"required>
+	<button>SignUp</button>
+</form>
+</div>
+<div class="form-container sign-in-container">
+	<form name="signin" action="#">
+		<h1>Sign In</h1>
+		<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your account</span>
+	<input type="email" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="Password">
+	<a href="#">Forgot Your Password</a>
+
+	<button>Sign In</button>
+	</form>
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome to URBANFoods</h1>
+			<p>Sign In to keep connected with us</p>
+			<button  class="ghost" id="signIn">Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Sign Up Here</h1>
+			<p>Sign Up to URBANFoods</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	function validateform(){
+		var name=document.signup.name.value;
+		var email=document.signup.email.value;
+		var password=document.signup.password.value;
+		var atposition=x.indexOf("@");  
+        var dotposition=x.lastIndexOf("."); 
+		if (name==null || name==""){
+			alert("Name can't be blank");  
+            return false; 
+		}  
+  		else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+			alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+            return false;  
+		}
+		else if(password.length<8){
+			alert("Password must be at least 8 characters long.");  
+            return false;  
+		}  
+		
+	}
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
